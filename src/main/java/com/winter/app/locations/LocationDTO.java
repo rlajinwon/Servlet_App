@@ -12,6 +12,7 @@ public class LocationDTO {
 	
 	
 	
+	
 	public int getLocationId() {
 		return locationId;
 	}
@@ -51,4 +52,10 @@ public class LocationDTO {
 	
 	
 
+	
+	
 }
+	
+	
+	
+	

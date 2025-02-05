@@ -10,12 +10,45 @@ import com.winter.app.utils.DBConnection;
 
 public class LocationDAO {
 	
+	
+	public int add(LocationDTO locationDTO) throws Exception{
+		int result = 0;
+		
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "INSERT INTO LOCATIONS VALUES(LOCATIONS_SEQ.NEXTVAL,?,?,?,?,?)";
+	
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+
+		st.setString(1, locationDTO.getStreetAddress());
+		st.setString(2, locationDTO.getPostalCode());
+		st.setString(3, locationDTO.getCity());
+		st.setString(4, locationDTO.getStateProvince());
+		st.setString(5, locationDTO.getCountryId());
+		
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public List<LocationDTO> getlist() throws Exception{
 		System.out.println("지역정보 리스트 조회");
 		
 		Connection con = DBConnection.getConnection();
 		
-		String sql = "SELECT * FROM LOCATIONS";
+		String sql = "SELECT * FROM LOCATIONS ORDER BY LOCATION_ID DESC";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -29,7 +62,7 @@ public class LocationDAO {
 			locationDTO.setStreetAddress(rs.getString("STREET_ADDRESS"));
 			locationDTO.setPostalCode(rs.getString("POSTAL_CODE"));
 			locationDTO.setCity(rs.getString("CITY"));
-			locationDTO.setStateProvince(rs.getString("STATEPROVINCE"));
+			locationDTO.setStateProvince(rs.getString("STATE_PROVINCE"));
 			locationDTO.setCountryId(rs.getString("COUNTRY_ID"));
 			
 			ar.add(locationDTO);

@@ -6,9 +6,44 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.winter.app.tests.departments.DepartmentDAOTest;
 import com.winter.app.utils.DBConnection;
 
 public class DepartmentDAO {
+	
+	
+	//부서 추가
+	
+	public int add(DepartmentDTO departmentDTO) throws Exception{
+
+		int result = 0;
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) "
+				+" VALUES (DEPARTMENTS_SEQ.NEXTVAL,?,?,?)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, departmentDTO.getDepartment_name());
+		st.setLong(3, departmentDTO.getLocation_id());
+		st.setLong(2, departmentDTO.getManager_id());
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		
+		
+		
+		
+		
+		
+		return result;
+	}
+	
+	
+	
+	
+	
 	
 	//부서 리스트 
 	public List<DepartmentDTO> getList() throws Exception{
@@ -18,7 +53,7 @@ public class DepartmentDAO {
 		Connection con = DBConnection.getConnection();
 		
 		//2. Sql문 생성 
-		String sql = "SELECT * FROM DEPARTMENTS";
+		String sql = "SELECT * FROM DEPARTMENTS ORDER BY DEPARTMENT_ID DESC";
 		
 		//3. 미리보내기 
 		PreparedStatement st = con.prepareStatement(sql);
@@ -52,7 +87,7 @@ public class DepartmentDAO {
 		
 		Connection con = DBConnection.getConnection();
 		
-		String sql = "SELECT * FROM WHERE DEPARTEMENT_ID = ?";
+		String sql = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID = ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -67,7 +102,8 @@ public class DepartmentDAO {
 			departmentDTO.setManager_id(rs.getLong("MANAGER_ID"));
 			departmentDTO.setLocation_id(rs.getLong("LOCATION_ID"));
 			
-			
+		}else {
+			departmentDTO=null;
 		}
 		
 		

@@ -54,6 +54,9 @@ public class DepartmentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+		
+		//parameter
+		String department_id = request.getParameter("department_id");
 
 		
 		
