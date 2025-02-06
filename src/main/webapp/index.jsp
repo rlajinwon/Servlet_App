@@ -9,6 +9,7 @@
 <body>
 
 	<h1>Home page</h1>
+	<h1>Team Mate Add</h1>
 
 	<a href="/departments/list.jsp">Department List</a>
 	
