@@ -34,6 +34,9 @@
 	<h3><%=locationDTO.getCity() %></h3>
 	<h3><%=locationDTO.getStreetAddress()%></h3>
 	
+	<a href ="./update.jsp?location_id=<%=locationDTO.getLocationId()%>">부서수정</a>
+	<a href ="./deleteProcess.jsp?location_id=<%=locationDTO.getLocationId()%>">지역정보 삭제</a>
+	
  	<%}else{ %>
  	<h3>없는 부서</h3>
  	<%} %>

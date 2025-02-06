@@ -10,6 +10,76 @@ import com.winter.app.utils.DBConnection;
 
 public class LocationDAO {
 	
+	public int update(LocationDTO locationDTO) throws Exception{
+		int result = 0;
+		
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ?, POSTAL_CODE = ? ,CITY = ?, STATE_PROVINCE = ? , COUNTRY_ID = ? "
+				+ " WHERE LOCATION_ID = ? ";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, locationDTO.getStreetAddress());
+		st.setString(2, locationDTO.getPostalCode());
+		st.setString(3, locationDTO.getCity());
+		st.setString(4, locationDTO.getStateProvince());
+		st.setString(5, locationDTO.getCountryId());
+		st.setInt(6, locationDTO.getLocationId());
+		
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		
+		
+		return result;
+		
+		
+	}
+//	private int locationId;
+//	private String streetAddress;
+//	private String postalCode;
+//	private String city;
+//	private String stateProvince;
+//	private String countryId;
+//	
+	
+	
+	
+	
+	//부서삭제
+	public int delete(LocationDTO locationDTO) throws Exception{
+		
+		int result = 0;
+		
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "DELETE FROM LOCATIONS WHERE LOCATION_ID = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1,locationDTO.getLocationId());
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public int add(LocationDTO locationDTO) throws Exception{
 		int result = 0;
