@@ -1,25 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+
+    <!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <%@ include file ="/template/common.jsp" %>
+	
+
 </head>
 <body>
+    
+    
+    
+    
+    
+    
+	<%@ include file ="/template/header.jsp" %>
+ 
 
-	<h1>Home page</h1>
-	<h1>Team Mate Add</h1>
-	<h3>VS CODE</h3>
-	<h3>VSCODE2</h3>
-	<h3>VSCODE3</h3>
+    <section class="wrap_left contents">
 
 
+	<%@ include file ="/template/nav.jsp" %>
+        <div class="right contents_right"></div>
+    
+    
+    </section>
+    
+	<%@ include file ="./template/footer.jsp" %>
 
-
-	<a href="/departments/list.jsp">Department List</a>
-	
-	<a href="./locations/list.jsp">Location List</a>
 
 </body>
 </html>

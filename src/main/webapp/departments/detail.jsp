@@ -22,9 +22,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>Department Detail Page</h1>
+		
 	
+	
+	<h1>Department Detail Page</h1>
+		
 	<% if(departmentDTO != null){ %>
 		<h3><%=departmentDTO.getDepartment_id() %></h3>
 		<h3><%=departmentDTO.getDepartment_name() %></h3>

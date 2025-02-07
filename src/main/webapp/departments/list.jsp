@@ -17,32 +17,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<%@ include file = "/template/common.jsp" %>	
+    <link rel="stylesheet" href="/resources/css/table1.css">
+    
 </head>
-<style type="text/css">
-
-	table{
-	width: 40%;
-	margin: 0 auto;
-	border: 1px solid black;
-	border-collapse: collapse;
-	}
-	
-	table td, table th {
-	border: 1px solid black;
-	text-align: center;
-	
-	}
 
 
 
-
-
-</style>
 <body>
 
 	<h1>Department List</h1>
-	<h3>표현식 자바의 변수나 값을 HTML로 출력할 때 사용 </h3>
+
 	<table>
+		<%@ include file ="/template/header.jsp" %>
 		<thead>
 		<tr>
 			<th>부서번호</th><th>부서명</th>
@@ -59,22 +47,22 @@
 	</td>
 	</tr>
 	<% } %>
+
 	</tbody>
 	
+
+
+	
 	</table>
+	
 	
 	<div>
 		<a href ="./add.jsp">부서등록</a>
 	</div>
 	
+	<%@ include file ="/template/footer.jsp" %>
 	
-	
-	
-	
-	
-	
-	
-	
+
 
 </body>
 </html>
