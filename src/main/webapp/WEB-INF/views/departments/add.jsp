@@ -14,7 +14,7 @@
 
 	
 	
-	<form action="./addProcess.jsp" method="post">
+	<form action="./add.do" method="post">
 		<fieldset>
 			<legend>부서 이름</legend>
 		<input type ="text" name ="department_name" value="test">

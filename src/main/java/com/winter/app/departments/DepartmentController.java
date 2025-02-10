@@ -5,11 +5,15 @@ import java.io.PrintWriter;
 import java.net.ResponseCache;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.winter.app.ActionForward;
 
 /**
  * Servlet implementation class DepartmentController
@@ -17,6 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DepartmentController")
 public class DepartmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private DepartmentService departmentService;
+	
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -24,6 +32,7 @@ public class DepartmentController extends HttpServlet {
     public DepartmentController() {
         super();
         // TODO Auto-generated constructor stub
+        departmentService = new DepartmentService();
     }
     
     /*
@@ -52,51 +61,84 @@ public class DepartmentController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
 		
-		//parameter
-		String department_id = request.getParameter("department_id");
-
-		
-		
+		String uri = request.getRequestURI();
+		uri = uri.substring(uri.lastIndexOf("/")+1);
+		String path = "";
+		ActionForward actionForward = new ActionForward();
+		actionForward.setFlag(true);
+		actionForward.setPath("/WEB-INF/views/errors/notfound.jsp");
 		
 		try {
-		String uri = request.getRequestURI();
-		
+			switch(uri) {
+			case "list.do" : 
+							
+				departmentService.getList(request,actionForward);
 				
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		String suburi = (uri.substring(uri.lastIndexOf("/")+1));
-		
-		
-			if(suburi.equals("list.do")) {
-				List<DepartmentDTO> ar = departmentDAO.getList();
+				//attribute : 속성 (키:string , 값:Object)  
+				// 			 
+				break;
+			case "detail.do":
 				
-				PrintWriter p = response.getWriter();
-				p.println("<h1>departmentList</h1>");
-				
-				p.print("<Table border = 1");
-				for(int i=0; i<ar.size(); i++) {
-				p.println("<tr>");
-				p.println("<td>"+ar.get(i).getDepartment_id()+"</td>");
-				
-				p.println("<td>"+ar.get(i).getDepartment_name()+"</td>");
-				p.println("</tr>");
+				departmentService.getDetail(request,actionForward);
+			
+				break;
+			case "add.do":
+				String method = request.getMethod();
+				if(method.toUpperCase().equals("POST")) {
+					departmentService.add(request, actionForward);
+					
+				}else {
+					actionForward.setFlag(true);
+					actionForward.setPath("/WEB-INF/views/departments/add.jsp");
 				}
-				p.print("</Table>");
-				p.close();
+				break;
 				
+			case "update.do":
+				String m = request.getMethod();
+				if(m.toUpperCase().equals("POST")) {
+					departmentService.updateProcess(request, actionForward);
+					
+				}else {
+					departmentService.update(request, actionForward);
+				
+				}
+				break;
+			
+			case "delete.do":
+				
+				departmentService.delete(request, actionForward);
+				break;
+				
+				
+		}
 		
-				
-				
-			}else if(suburi.equals("detail.do")) {
-				departmentDAO.getDetail(null);
-			}
 		}catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
-			
 		}
+		RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath()); //jsp 절대경로
+		
+		
+		view.forward(request, response);
+		
+		
+//		try {
+//			DepartmentDAO departmentDAO = new DepartmentDAO();
+//			List<DepartmentDTO> ar = departmentDAO.getList();
+//			
+//			//attribute : 속성 (키:string , 값:Object)  
+//			// 			
+//			request.setAttribute("list", ar);
+//			
+//			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/departments/list.jsp"); //jsp 절대경로
+//			
+//			
+//			view.forward(request, response);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//
+//		}
+		
 	}
 
 	/**

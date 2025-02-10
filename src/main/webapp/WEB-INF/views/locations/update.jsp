@@ -6,12 +6,7 @@
     
     
     <%
-    String id = request.getParameter("location_id");
-    LocationDTO locationDTO = new LocationDTO();
-    locationDTO.setLocationId(Integer.parseInt(id));
-    
-    LocationDAO locationDAO = new LocationDAO();
-    locationDTO = locationDAO.getdetail(locationDTO);
+	LocationDTO locationDTO = (LocationDTO)request.getAttribute("dto");
     
     
     
@@ -28,7 +23,7 @@
 
 <h1>업데이트 폼</h1>
 
-<form action="./updateProcess.jsp" method="post">
+<form action="./update.do" method="post">
 
 <input type="text" readonly="readonly" name="location_id" value="<%=locationDTO.getLocationId()%>">
 <input type="text" name="street_address" value="<%=locationDTO.getStreetAddress() %>">
