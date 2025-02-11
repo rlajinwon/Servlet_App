@@ -23,7 +23,7 @@
 
 		<fieldset>
 			<legend>비밀번호</legend>
-		<input type ="text" name ="password"  >
+		<input type ="password" name ="password"  >
 			</fieldset>
 
 	
