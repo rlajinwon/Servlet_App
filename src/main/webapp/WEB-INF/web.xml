@@ -62,5 +62,20 @@
 </servlet-mapping>
 
 
+<servlet>
+
+<servlet-name>employeeController</servlet-name>
+<servlet-class>com.winter.app.employees.EmployeeController</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+<servlet-name>employeeController</servlet-name>
+<url-pattern>/employees/*</url-pattern>
+</servlet-mapping>
+
+
+
 </web-app>
 

@@ -3,10 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
 
-	DepartmentDTO departmentDTO = (DepartmentDTO)request.getAttribute("dto");
-%>
     
 <!DOCTYPE html>
 <html>
@@ -19,10 +16,10 @@
 	<h1>Update Form</h1>
 	
 	<form action="./update.do" method ="post">
-		<input type="text" readonly="readonly" name="department_id" value="<%=departmentDTO.getDepartment_id()%>">
-		<input type="text" name="department_name" value="<%=departmentDTO.getDepartment_name()%>">
-		<input type="text" name="manager_id" value="<%=departmentDTO.getManager_id() %>">
-		<input type="text" name="location_id" value="<%=departmentDTO.getLocation_id()%>">
+		<input type="text" readonly="readonly" name="department_id" value="${dto.department_id}">
+		<input type="text" name="department_name" value="${dto.department_name}">
+		<input type="text" name="manager_id" value="${dto.manager_id}">
+		<input type="text" name="location_id" value="${dto.location_id}">
 		<button type="submit">수정</button>
 			
 	</form>
