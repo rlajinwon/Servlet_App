@@ -25,7 +25,10 @@
 			<legend>비밀번호</legend>
 		<input type ="password" name ="password"  >
 			</fieldset>
-
+			
+				
+			<label>id 기억하기</label>
+			<input type="checkbox" name ="">
 	
 
 

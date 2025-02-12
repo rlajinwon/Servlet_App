@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,12 @@ public class HomeController extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("Home Controller");
+		
+		// 쿠키 생성
+		Cookie cookie = new Cookie("my","test");
+		cookie.setMaxAge(60); // 60초 동안 쿠키 유지
+		
+		response.addCookie(cookie);
 		
 		//jsp 연결 
 		
