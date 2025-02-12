@@ -20,7 +20,7 @@
 <servlet>
 
 	<servlet-name>homeController</servlet-name>
-	<servlet-class>com.winter.app.HomeCOntroller</servlet-class>
+	<servlet-class>com.winter.app.HomeController</servlet-class>
 
 </servlet>
 
@@ -29,6 +29,19 @@
 	<url-pattern>/index.do</url-pattern>
 </servlet-mapping>
 
+
+<servlet>
+
+	<servlet-name>user</servlet-name>
+	<servlet-class>com.winter.app.users.UserController</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>user</servlet-name>
+	<url-pattern>/users/*</url-pattern>
+
+</servlet-mapping>
 
 
 

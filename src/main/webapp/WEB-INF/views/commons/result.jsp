@@ -8,15 +8,5 @@
 </head>
 <body>
 
-<h1>홈페이지</h1>
-
-<div>
-<a href ="/users/join.do">회원가입</a>
-</div>
-<div>
-<a href ="/users/login.do">로그인</a>
-</div>
-
-
 </body>
 </html>

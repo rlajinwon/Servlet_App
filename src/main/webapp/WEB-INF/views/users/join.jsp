@@ -38,6 +38,10 @@
 		<input type="text" name="email">
 	
 	</fieldset>
+	
+						<fieldset>
+							<button type="submit">회원등록</button>
+						</fieldset>		
 
 
 </form>
