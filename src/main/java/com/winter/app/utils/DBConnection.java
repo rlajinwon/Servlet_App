@@ -11,8 +11,8 @@ public class DBConnection {
 	
 	public static Connection getConnection() throws Exception{
 		
-		String user = "hr";
-		String password = "hr";
+		String user = "user01";
+		String password = "user01";
 		String url ="jdbc:oracle:thin:@3.35.8.78:1521:xe";
 		String driver ="oracle.jdbc.driver.OracleDriver";
 		

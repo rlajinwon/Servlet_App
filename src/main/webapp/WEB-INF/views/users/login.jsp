@@ -8,44 +8,28 @@
 </head>
 <body>
 
-	<form action="join.do" method="post">
+
+<form action="login.do" method ="post">
+
 	<fieldset>
 		<legend>회원 아이디</legend>
 		<input type="text" name="username">
-	
 	</fieldset>
 
 	<fieldset>
 		<legend>비밀번호</legend>
 		<input type="password" name="password">
-	
 	</fieldset>
 
 	<fieldset>
-		<legend>이름</legend>
-		<input type="text" name="name">
-	
+		<button type ="submit">로그인</button>
 	</fieldset>
-
-	<fieldset>
-		<legend>전화번호</legend>
-		<input type="text" name="phone">
-	
-	</fieldset>
-
-	<fieldset>
-		<legend>이메일</legend>
-		<input type="text" name="email">
-	
-	</fieldset>
-	
-	
-	<fieldset>
-		<button type="submit">회원등록</button>
-	</fieldset>		
 
 
 </form>
+
+
+
 
 
 </body>
