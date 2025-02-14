@@ -9,7 +9,7 @@
 <style type="text/css">
 
 
-/* 기본 스타일 설정 */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -35,14 +35,31 @@ body {
     margin-bottom: 20px;
 }
 
+/* 필드셋 스타일 */
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
 /* 입력 필드 스타일 */
-input[type="text"] {
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
 /* 버튼 스타일 */
@@ -71,6 +88,7 @@ button:hover {
 
 </head>
 <body>
+
 
 </body>
 </html>

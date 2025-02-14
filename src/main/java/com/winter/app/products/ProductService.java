@@ -2,10 +2,13 @@ package com.winter.app.products;
 
 import java.sql.Clob;
 import java.util.List;
+import java.util.function.DoublePredicate;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.winter.app.ActionForward;
+import com.winter.app.users.UserDTO;
 
 public class ProductService {
 	
@@ -17,18 +20,37 @@ public class ProductService {
 		
 		
 	}
+		
+	
+	
+	
+	
+	
+	
 	
 	public void update(HttpServletRequest request, ActionForward actionForward) throws Exception{
-		ProductDTO productDTO = new ProductDTO();
+		
+		
+		
+		ProductDTO productDTO = new ProductDTO();		
+		
+		
+		
+		productDTO.setProductname(request.getParameter("productname"));
+		
+//		productDTO.setProductrate(Double.parseDouble(request.getParameter("productrate")));
+		
+		
 		productDTO.setProductnum(Integer.parseInt(request.getParameter("productnum")));
 		productDTO = productDAO.getDetail(productDTO);
 		request.setAttribute("dto", productDTO);
 		actionForward.setFlag(true);
 		actionForward.setPath("/WEB-INF/views/products/update.jsp");
+			
+			
 		
-	}
-	
-	
+			
+		}
 	
 	
 	public ActionForward getDetail(HttpServletRequest request,ActionForward actionForward) throws Exception{

@@ -13,7 +13,7 @@ public class UserDAO {
 	public int update(UserDTO userDTO) throws Exception{
 		Connection con = DBConnection.getConnection();
 		
-		String sql = "UPDATE USERS SET NAME = ?,PHONE = ?,EMAIL = ?,PASSWORD = ? ";
+		String sql = "UPDATE USERS SET NAME = ?,PHONE = ?,EMAIL = ?,PASSWORD = ? WHERE USERNAME = ? ";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -21,6 +21,7 @@ public class UserDAO {
 		st.setString(2, userDTO.getPhone());
 		st.setString(3, userDTO.getEmail());
 		st.setString(4, userDTO.getPassword());
+		st.setString(5,userDTO.getUsername());
 		
 		int result = st.executeUpdate();
 		

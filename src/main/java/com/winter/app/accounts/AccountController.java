@@ -1,4 +1,4 @@
-package com.winter.app.products;
+package com.winter.app.accounts;
 
 import java.io.IOException;
 
@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.winter.app.ActionForward;
 
 /**
- * Servlet implementation class ProductController
+ * Servlet implementation class AccountController
  */
-@WebServlet("/ProductController")
-public class ProductController extends HttpServlet {
+@WebServlet("/AccountController")
+public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ProductService productService;
+	private AccountService accountService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductController() {
+    public AccountController() {
         super();
-        productService = new ProductService();
+        accountService = new AccountService();
         // TODO Auto-generated constructor stub
     }
 
@@ -33,7 +33,7 @@ public class ProductController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+	
 		String uri = request.getRequestURI();
 		
 		uri = uri.substring(uri.lastIndexOf("/")+1);
@@ -41,51 +41,35 @@ public class ProductController extends HttpServlet {
 		String path = "";
 		ActionForward actionForward = new ActionForward();
 		
+		
 		try {
 		
-		if(uri.equals("list.do")) {
-		
-			productService.getList(request, actionForward);
+		if(uri.equals("add.do")) {
 			
-		}else if(uri.equals("add.do")) {
 			String method = request.getMethod();
 			if(method.toUpperCase().equals("POST")) {
-				productService.add(request, actionForward);
+				accountService.add(request, actionForward);
 			}else {
 				actionForward.setFlag(true);
-				actionForward.setPath("/WEB-INF/views/products/add.jsp");
+				actionForward.setPath("/WEB-INF/views/accounts/add.jsp");
 			}
 			
 			
-		}else if(uri.equals("detail.do")) {
-			
-			productService.getDetail(request, actionForward);
-			
-		}else if(uri.equals("update.do")) {
-			
-			String m = request.getMethod();
-			
-			if(m.toUpperCase().equals("POST")) {
-		
-				actionForward.setFlag(false);
-				actionForward.setPath("./detail.do");
-				
-			}else {
-				
-				productService.update(request, actionForward);
-			}
 		}
-				
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(actionForward.getPath());
 		 dispatcher.forward(request, response); 
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		
+			
 		
 		
-		
-	}catch (Exception e) {
-		e.printStackTrace();
-		
-	}
+	
 		
 	}
 

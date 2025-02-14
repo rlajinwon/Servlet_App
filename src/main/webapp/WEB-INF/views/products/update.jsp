@@ -15,10 +15,20 @@
 
 <form action="./update.do" method="post">
 
-	<input type="hidden" name="productnum" value="${dto.productnum}">
-	<input type="text" name="productname" value="${dto.productname}">
-	<input type="text" name="productrate" value="${dto.productrate}">
 
+	
+	<fieldset>
+		<legend>상품이름</legend>
+	<input type="text" name="productname" value="${dto.productname}">
+		</fieldset>
+		
+		
+	<fieldset>
+		<legend>이자율</legend>
+	<input type="text" name="productrate" value="${dto.productrate}">
+	</fieldset>
+	
+	
 	<button type ="submit">수정</button>
 </form>
 

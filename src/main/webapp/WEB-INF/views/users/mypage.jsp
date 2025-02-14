@@ -14,9 +14,20 @@
 
 <div>
 
-<h3>이름: ${sessionScope.user.name}</h3>
-<h3>폰 번호:${user1.phone}</h3>
-<h3>이메일: ${user1.email}</h3>
+	<fieldset>
+		<legend>이름</legend>
+<h3>${sessionScope.user.name}</h3>
+	</fieldset>
+
+<fieldset>
+		<legend>폰번호</legend>
+<h3>${user1.phone}</h3>
+	</fieldset>
+	
+	<fieldset>
+		<legend>이메일</legend>
+	<h3>${user1.email}</h3>
+	</fieldset>
 
 </div>
 

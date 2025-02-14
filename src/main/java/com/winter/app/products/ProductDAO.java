@@ -14,13 +14,14 @@ public class ProductDAO {
 		int result = 0;
 		Connection con = DBConnection.getConnection();
 		
-		String sql ="UPDATE PRODUCTS SET PRODUCTNAME = ?,PRODUCTRATE = ?  "
-				+ " WHERE PRODUCTNUM = ?";
+		String sql ="UPDATE PRODUCTS SET PRODUCTNAME = ?,PRODUCTRATE = ? WHERE PRODUCTNUM = ?";
+			
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, productDTO.getProductname());
 		st.setDouble(2, productDTO.getProductrate());
+		st.setInt(3, productDTO.getProductnum());
 		
 		result = st.executeUpdate();
 		
