@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 
 <c:import url="/WEB-INF/views/commons/add.jsp"></c:import>
-
+<c:import url="/WEB-INF/views/commons/header.jsp"></c:import>
 </head>
 <body>
 
 
 <form action="./update.do" method="post">
 
-
+<input type="hidden" name="productNum" value="${updateDTO.productnum }">
 	
 	<fieldset>
 		<legend>상품이름</legend>

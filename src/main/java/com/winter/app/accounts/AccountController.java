@@ -44,18 +44,18 @@ public class AccountController extends HttpServlet {
 		
 		try {
 		
-		if(uri.equals("add.do")) {
 			
-			String method = request.getMethod();
-			if(method.toUpperCase().equals("POST")) {
+			if(uri.equals("add.do")) {
 				accountService.add(request, actionForward);
-			}else {
-				actionForward.setFlag(true);
-				actionForward.setPath("/WEB-INF/views/accounts/add.jsp");
+		
+			}else if(uri.equals("list.do")) {
+				accountService.getList(request, actionForward);
+				
 			}
 			
 			
-		}
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(actionForward.getPath());
 		 dispatcher.forward(request, response); 

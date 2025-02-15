@@ -23,7 +23,19 @@ public class ProductService {
 		
 	
 	
-	
+	public void updateB(HttpServletRequest request, ActionForward actionForward) throws Exception{
+		
+		
+		ProductDTO productDTO = new ProductDTO();		
+		String num = request.getParameter("productnum");
+		productDTO.setProductnum(Integer.parseInt(num));
+		productDTO = productDAO.getDetail(productDTO);
+		request.setAttribute("dto", productDTO);
+		actionForward.setFlag(true);
+		actionForward.setPath("/WEB-INF/views/products/update.jsp");
+		
+		
+	}
 	
 	
 	
@@ -31,22 +43,20 @@ public class ProductService {
 	public void update(HttpServletRequest request, ActionForward actionForward) throws Exception{
 		
 		
-		
-		ProductDTO productDTO = new ProductDTO();		
-		
-		
-		
+		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductname(request.getParameter("productname"));
-		
-//		productDTO.setProductrate(Double.parseDouble(request.getParameter("productrate")));
-		
-		
+		productDTO.setProductrate(Double.parseDouble(request.getParameter("productrate")));
 		productDTO.setProductnum(Integer.parseInt(request.getParameter("productnum")));
-		productDTO = productDAO.getDetail(productDTO);
-		request.setAttribute("dto", productDTO);
+		int result = productDAO.update(productDTO);
+		
+		String str = "상품 정보 수정 실패";
+		if(result > 0) {
+			str = "상품 정보 수정 성공";
+		}
+		request.setAttribute("result", str);
+		request.setAttribute("path", "/products/detail.do?productnum="+request.getParameter("productnum"));
 		actionForward.setFlag(true);
-		actionForward.setPath("/WEB-INF/views/products/update.jsp");
-			
+		actionForward.setPath("/WEB-INF/commons/result.jsp");
 			
 		
 			

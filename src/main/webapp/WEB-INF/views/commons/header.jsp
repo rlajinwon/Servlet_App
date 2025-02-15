@@ -29,15 +29,17 @@
 
 </style>
 
-
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 
 <header>
-<h1 onclick="location.href='/index.do';" style="cursor: pointer;">Bank 홈페이지</h1>
-
+    <h1 onclick="location.href='/index.do';" style="cursor: pointer;">Bank 홈페이지</h1>
 </header>
 
+<nav>
+
+</nav>
 
 </body>
 </html>

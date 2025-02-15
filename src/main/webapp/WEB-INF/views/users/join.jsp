@@ -9,7 +9,6 @@
 <c:import url="/WEB-INF/views/commons/add.jsp"></c:import>
 <c:import url="/WEB-INF/views/commons/header.jsp"></c:import>
 
-
 </head>
 <body>
 

@@ -67,12 +67,11 @@ public class ProductController extends HttpServlet {
 			
 			if(m.toUpperCase().equals("POST")) {
 		
-				actionForward.setFlag(false);
-				actionForward.setPath("./detail.do");
+				productService.update(request, actionForward);
 				
 			}else {
 				
-				productService.update(request, actionForward);
+				productService.updateB(request, actionForward);
 			}
 		}
 				

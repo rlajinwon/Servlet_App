@@ -41,8 +41,9 @@
 	<h3>${dto.productdate}</h3>
 		</fieldset>
 	
-	<a href="./update.do?productnum=${dto.productnum}">상품 수정</a>
+	<%-- <%-- <a href="./update.do?productnum=${dto.productnum}">상품 수정</a> --%> --%>
 	
+<%-- 	<a href="./add.do?productnum=${dto.productnum}">상품 가입</a> --%>
 	
 	
 	</c:when>
