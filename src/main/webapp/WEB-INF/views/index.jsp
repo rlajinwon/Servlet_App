@@ -20,7 +20,7 @@
 
 <div class="content-header">
     <div class="logo-container">
-        <img src="/resources/images/logo.jpg" alt="로고" class="logo">
+       
     </div>
     <ul class="nav-menu">
         <li><a href="/products/list.do">상품 목록 보기</a></li>
